@@ -4,7 +4,7 @@ defmodule Synchub do
   """
   use HTTPotion.Base
 
-  @apiurl "https://api.github.com/"
+  @apiurl Application.get_env(:synchub, :apiurl)
 
   @doc "handle create url."
   def process_url(url) do
@@ -13,7 +13,7 @@ defmodule Synchub do
 
   @doc "handle create request header." 
   def process_request_headers(headers) do
-    Dict.put headers, :"User-Agent", "Slowhand"
+    Dict.put headers, :"User-Agent", Application.get_env(:synchub, :username)
   end
 
   @doc "handle response of html body."
