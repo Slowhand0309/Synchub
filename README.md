@@ -16,13 +16,13 @@ It has the following mix task
 * Show the GitHub repository list
 
 ```
-$ mix list.github.repos
+$ mix list.github
 ```
 
 * Synchronization of github repository
 
 ```
-$ mix sync.github.repos # not yet
+$ mix sync.github # not yet
 ```
 
 ## Licence
