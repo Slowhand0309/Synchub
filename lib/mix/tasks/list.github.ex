@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.List.Github.Repos do
+defmodule Mix.Tasks.List.Github do
   use Mix.Task
 
   @shortdoc "Show github repos list"
@@ -6,6 +6,7 @@ defmodule Mix.Tasks.List.Github.Repos do
   def run(args) do
     url = "users/" <> Application.get_env(:synchub, :userid) <> "/repos"
     Synchub.start
-    Synchub.get(url)
+    repos = Synchub.get(url)
+    Synchub.Listrepos.put_repo_name(repos)
   end
 end
