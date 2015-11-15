@@ -8,7 +8,7 @@ defmodule SynchubTest do
   end
 
   test "list.github.repos" do
-url = "users/" <> Application.get_env(:synchub, :userid) <> "/repos"
+    url = "users/" <> Application.get_env(:synchub, :userid) <> "/repos"
     Synchub.start
     assert_response Synchub.get(url)
   end
