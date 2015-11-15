@@ -22,7 +22,7 @@ $ mix list.github
 * Synchronization of github repository
 
 ```
-$ mix sync.github # not yet
+$ mix sync.github
 ```
 
 ## Licence
