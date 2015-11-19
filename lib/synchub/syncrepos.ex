@@ -22,7 +22,13 @@ def sync([info|tail]) do
   File.cd(@rootdir)
 
   if File.exists?(info["name"]) do
-    # TODO git command
+    # git command
+    File.cd(info["name"])
+    IO.puts "exists repo dir " <> info["name"]
+    case System.cmd("git", Application.get_env(:synchub, :exists_cmd)) do
+      {err, code} -> IO.puts(err)
+    end
+    File.cd("../")
   else
     # clone repo
     clone_url = info["clone_url"]
