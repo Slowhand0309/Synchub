@@ -17,4 +17,19 @@ defmodule SynchubTest do
     assert HTTPotion.Response.success?(response, :extra)
   end
 
+  test "sync" do
+    # create dir
+    response = [%{"name" => "Synchub",
+      "clone_url" => "https://github.com/Slowhand0309/Synchub.git"}]
+    Synchub.Syncrepos.sync(response)
+    assert File.exists?("syncrepos")
+    assert File.exists?("syncrepos/Synchub")
+
+    # git mv
+    Synchub.Syncrepos.sync(response)
+    assert File.exists?("syncrepos/Synchub/MOVED.md")
+
+    File.rm_rf("syncrepos")
+  end
+
 end
