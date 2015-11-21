@@ -8,7 +8,25 @@
 It will synchronize all of the repository GitHub<br />
 If there is no repository is locally was cloned, if it exists, run the specific command
 
-## Installation
+## Setup
+You need to set the `dev.exs` at the beginning
+
+```elixir
+use Mix.Config
+
+config :synchub,
+  apiurl: "https://api.github.com/",
+  userid: "Slowhand0309", # github account id
+  username: "Slowhand", # github account user name
+  exists_cmd: ["pull", "origin"] # see below
+```
+`exists_cmd:` =>
+Git commands you already run against the repository have been cloned
+
+compile
+```
+$ mix compile
+```
 
 ## Usage
 It has the following mix task
