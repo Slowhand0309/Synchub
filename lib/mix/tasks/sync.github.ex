@@ -13,8 +13,9 @@ defmodule Mix.Tasks.Sync.Github do
       url = "users/" <> Application.get_env(:synchub, :userid) <> "/repos"
       Synchub.start
       repos = Synchub.get(url)
-      Syncrepos.sync(repos.body)
-      IO.puts "success sync github repos"
+      if Syncrepos.sync(repos.body) do
+        IO.puts "success sync github repos"
+      end
     end
   end
 end

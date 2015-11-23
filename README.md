@@ -18,6 +18,7 @@ config :synchub,
   apiurl: "https://api.github.com/",
   userid: "Slowhand0309", # github account id
   username: "Slowhand", # github account user name
+  rootpath: "/home/vagrant/syncrepos", # root path for repository
   exists_cmd: ["pull", "origin"] # see below
 ```
 `exists_cmd:` =>
